@@ -3,48 +3,83 @@ package DataStructure;
 import java.io.Serializable;
 import java.util.*;
 
-public class CounterHashMap<K> extends HashMap<K,Integer> implements Serializable{
+public class CounterHashMap<K> extends HashMap<K, Integer> implements Serializable {
 
-    public CounterHashMap(){
+    /**
+     * A constructor which calls its super.
+     */
+    public CounterHashMap() {
         super();
     }
 
-    public void put(K key){
-        if (containsKey(key)){
+    /**
+     * The put method takes a K type input. If this map contains a mapping for the key, it puts this key after
+     * incrementing its value by one. If his map does not contain a mapping, then it directly puts key with the value of 1.
+     *
+     * @param key to put.
+     */
+    public void put(K key) {
+        if (containsKey(key)) {
             put(key, get(key) + 1);
         } else {
             put(key, 1);
         }
     }
 
-    public void putNTimes(K key, int N){
-        if (containsKey(key)){
+    /**
+     * The putNTimes method takes a K and an integer N as inputs. If this map contains a mapping for the key, it puts this key after
+     * incrementing its value by N. If his map does not contain a mapping, then it directly puts key with the value of N.
+     *
+     * @param key to put.
+     * @param N   to increment value.
+     */
+    public void putNTimes(K key, int N) {
+        if (containsKey(key)) {
             put(key, get(key) + N);
         } else {
             put(key, N);
         }
     }
 
-    public int count(K key){
-        if (containsKey(key)){
+    /**
+     * The count method takes a K as input, if this map contains a mapping for the key, it returns the value corresponding
+     * this key, 0 otherwise.
+     *
+     * @param key to get value.
+     * @return the value corresponding given key, 0 if it is not mapped.
+     */
+    public int count(K key) {
+        if (containsKey(key)) {
             return get(key);
         } else {
             return 0;
         }
     }
 
-    public int sumOfCounts(){
+    /**
+     * The sumOfCounts method loops through the values contained in this map and accumulates the counts of this values.
+     *
+     * @return accumulated counts.
+     */
+    public int sumOfCounts() {
         int sum = 0;
-        for (Integer count : values()){
+        for (Integer count : values()) {
             sum += count;
         }
         return sum;
     }
 
-    public K max(){
+    /**
+     * The max method loops through the mappings contained in this map and if the current entry's count value is greater
+     * than maxCount, which is initialized as 0, it updates the maxCount as current count and maxKey as the current count's
+     * key.
+     *
+     * @return K type maxKey which is the maximum valued key.
+     */
+    public K max() {
         int maxCount = 0;
         K maxKey = null;
-        for (Map.Entry<K,Integer> entry : entrySet()) {
+        for (Map.Entry<K, Integer> entry : entrySet()) {
             int count = entry.getValue();
             if (count > maxCount) {
                 maxCount = count;
@@ -54,10 +89,20 @@ public class CounterHashMap<K> extends HashMap<K,Integer> implements Serializabl
         return maxKey;
     }
 
-    public K max(double threshold){
+    /**
+     * The max method takes a threshold as input and loops through the mappings contained in this map. It accumulates the
+     * count values and if the current entry's count value is greater than maxCount, which is initialized as 0,
+     * it updates the maxCount as current count and maxKey as the current count's key.
+     * <p>
+     * At the end of the loop, if the ratio of maxCount/total is greater than the given threshold it returns maxKey, else null.
+     *
+     * @param threshold double value.
+     * @return K type maxKey if greater than the given threshold, null otherwise.
+     */
+    public K max(double threshold) {
         int maxCount = 0, total = 0;
         K maxKey = null;
-        for (Map.Entry<K,Integer> entry : entrySet()) {
+        for (Map.Entry<K, Integer> entry : entrySet()) {
             int count = entry.getValue();
             total += count;
             if (count > maxCount) {
@@ -65,14 +110,22 @@ public class CounterHashMap<K> extends HashMap<K,Integer> implements Serializabl
                 maxKey = entry.getKey();
             }
         }
-        if ((maxCount / total + 0.0) > threshold){
+        if ((maxCount / total + 0.0) > threshold) {
             return maxKey;
         } else {
             return null;
         }
     }
 
-    public List<Entry<K, Integer>> topN(int N){
+    /**
+     * The topN method takes an integer N as inout. It creates an {@link ArrayList} result and loops through the the
+     * mappings contained in this map and adds each entry to the result {@link ArrayList}. Then sort this {@link ArrayList}
+     * according to their values and returns an {@link ArrayList} which is a sublist of result with N elements.
+     *
+     * @param N Integer value for defining size of the sublist.
+     * @return a sublist of N element.
+     */
+    public List<Entry<K, Integer>> topN(int N) {
         ArrayList<Entry<K, Integer>> result = new ArrayList<>();
         for (Map.Entry<K, Integer> entry : entrySet()) {
             result.add(entry);
@@ -81,7 +134,12 @@ public class CounterHashMap<K> extends HashMap<K,Integer> implements Serializabl
         return result.subList(0, N);
     }
 
-    public String toString(){
+    /**
+     * The toString method loops through the mappings contained in this map and returns the string of each entry's key and value.
+     *
+     * @return String of the each entry's key and value.
+     */
+    public String toString() {
         String result = "";
         for (Map.Entry<K, Integer> entry : entrySet()) {
             result = result + entry.getKey().toString() + ":" + entry.getValue() + "-";
