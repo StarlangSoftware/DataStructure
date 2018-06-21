@@ -6,32 +6,68 @@ public class CacheNode<K, T> {
     private CacheNode<K, T> previous = null;
     private CacheNode<K, T> next = null;
 
-    public CacheNode(K key, T data){
+    /**
+     * A constructor of {@link CacheNode} class which takes a key and a data as inputs and initializes private fields with these inputs.
+     *
+     * @param key  K type input for representing keys.
+     * @param data T type input values represented by keys.
+     */
+    public CacheNode(K key, T data) {
         this.key = key;
         this.data = data;
     }
 
-    public T getData(){
+    /**
+     * Getter for data value.
+     *
+     * @return data value.
+     */
+    public T getData() {
         return data;
     }
 
-    public K getKey(){
+    /**
+     * Getter for key value.
+     *
+     * @return key value.
+     */
+    public K getKey() {
         return key;
     }
 
-    public CacheNode<K, T> getPrevious(){
+    /**
+     * Getter for the previous CacheNode.
+     *
+     * @return previous CacheNode.
+     */
+    public CacheNode<K, T> getPrevious() {
         return previous;
     }
 
-    public CacheNode<K, T> getNext(){
+    /**
+     * Getter for the next CacheNode.
+     *
+     * @return next CacheNode.
+     */
+    public CacheNode<K, T> getNext() {
         return next;
     }
 
-    public void setPrevious(CacheNode<K, T> previous){
+    /**
+     * Setter for the previous CacheNode.
+     *
+     * @param previous CacheNode.
+     */
+    public void setPrevious(CacheNode<K, T> previous) {
         this.previous = previous;
     }
 
-    public void setNext(CacheNode<K, T> next){
+    /**
+     * Setter for the next CacheNode.
+     *
+     * @param next CacheNode.
+     */
+    public void setNext(CacheNode<K, T> next) {
         this.next = next;
     }
 }
