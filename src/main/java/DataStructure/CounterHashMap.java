@@ -118,6 +118,17 @@ public class CounterHashMap<K> extends HashMap<K, Integer> implements Serializab
     }
 
     /**
+     * The add method adds value of each key of toBeAdded to the current counterHashMap.
+     *
+     * @param toBeAdded CounterHashMap to be added to this counterHashMap.
+     */
+    public void add(CounterHashMap<K> toBeAdded){
+        for (K value : toBeAdded.keySet()){
+            putNTimes(value, toBeAdded.get(value));
+        }
+    }
+
+    /**
      * The topN method takes an integer N as inout. It creates an {@link ArrayList} result and loops through the the
      * mappings contained in this map and adds each entry to the result {@link ArrayList}. Then sort this {@link ArrayList}
      * according to their values and returns an {@link ArrayList} which is a sublist of result with N elements.
