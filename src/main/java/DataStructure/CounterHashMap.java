@@ -110,7 +110,7 @@ public class CounterHashMap<K> extends HashMap<K, Integer> implements Serializab
                 maxKey = entry.getKey();
             }
         }
-        if ((maxCount / total + 0.0) > threshold) {
+        if (maxCount / (total + 0.0) > threshold) {
             return maxKey;
         } else {
             return null;
