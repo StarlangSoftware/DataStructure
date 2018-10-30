@@ -54,7 +54,6 @@ public class LRUCache<K, T> {
      * equal to the given cacheSize) then it removes the last cacheNode in the @link java.util.LinkedList}. If it has space for new entries,
      * it creates new cacheNode with given inputs and adds this cacheNode to the {@link java.util.LinkedList} and also puts
      * it to the {@link HashMap}.
-     * dolysa cikar
      *
      * @param key  K type input.
      * @param data T type input
