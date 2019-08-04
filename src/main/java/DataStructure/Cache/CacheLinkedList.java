@@ -50,7 +50,7 @@ public class CacheLinkedList<K, T> {
      * The remove method removes the last element of the doubly {@link java.util.LinkedList}. It assigns the previous node of
      * current tail as new tail. If the current tail is null then it assigns head to null.
      *
-     * @return {@link CacheNode} type output tail which is removd from doubly {@link java.util.LinkedList}.
+     * @return {@link CacheNode} type output tail which is removed from doubly {@link java.util.LinkedList}.
      */
     public CacheNode<K, T> remove() {
         CacheNode<K, T> removed = tail;
