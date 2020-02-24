@@ -153,7 +153,7 @@ public class CounterHashMap<K> extends HashMap<K, Integer> implements Serializab
     public String toString() {
         String result = "";
         for (Map.Entry<K, Integer> entry : entrySet()) {
-            result = result + entry.getKey().toString() + ":" + entry.getValue() + "-";
+            result = result + entry.getKey().toString() + " " + entry.getValue() + "\n";
         }
         return result;
     }
