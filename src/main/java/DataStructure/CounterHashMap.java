@@ -93,7 +93,7 @@ public class CounterHashMap<K> extends HashMap<K, Integer> implements Serializab
      * The max method takes a threshold as input and loops through the mappings contained in this map. It accumulates the
      * count values and if the current entry's count value is greater than maxCount, which is initialized as 0,
      * it updates the maxCount as current count and maxKey as the current count's key.
-     * <p>
+     *
      * At the end of the loop, if the ratio of maxCount/total is greater than the given threshold it returns maxKey, else null.
      *
      * @param threshold double value.
