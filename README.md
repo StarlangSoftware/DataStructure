@@ -1,8 +1,9 @@
 # DataStructure
+
 For Developers
 ============
-You can also see either [Python](https://github.com/olcaytaner/DataStructure-Py) 
-or [C++](https://github.com/olcaytaner/DataStructure-CPP) repository.
+You can also see [Python](https://github.com/olcaytaner/DataStructure-Py), [C++](https://github.com/olcaytaner/DataStructure-CPP), or [C#](https://github.com/olcaytaner/DataStructure-CS) repository.
+
 ## Requirements
 
 * [Java Development Kit 8 or higher](#java), Open JDK or Oracle JDK
@@ -76,12 +77,11 @@ Use below line to generate jar file:
 
 ## Maven Usage
 
-	<dependency>
-  	<groupId>NlpToolkit</groupId>
-  	<artifactId>DataStructure</artifactId>
-  	<version>1.0.1</version>
-	</dependency>
-
+        <dependency>
+            <groupId>io.github.starlangsoftware</groupId>
+            <artifactId>DataStructure</artifactId>
+            <version>1.0.2</version>
+        </dependency>
 
 ------------------------------------------------
 
