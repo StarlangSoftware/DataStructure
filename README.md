@@ -1,6 +1,6 @@
 For Developers
 ============
-You can also see [Python](https://github.com/olcaytaner/DataStructure-Py), [C++](https://github.com/olcaytaner/DataStructure-CPP), [Swift](https://github.com/olcaytaner/DataStructure-Swift), or [C#](https://github.com/olcaytaner/DataStructure-CS) repository.
+You can also see [Python](https://github.com/starlangsoftware/DataStructure-Py), [C++](https://github.com/starlangsoftware/DataStructure-CPP), [Swift](https://github.com/starlangsoftware/DataStructure-Swift), or [C#](https://github.com/starlangsoftware/DataStructure-CS) repository.
 
 ## Requirements
 
@@ -36,7 +36,7 @@ Use Git for cloning the code to your local or below line for Ubuntu:
 
 A directory called DataStructure will be created. Or you can use below link for exploring the code:
 
-	git clone https://github.com/olcaytaner/DataStructure.git
+	git clone https://github.com/starlangsoftware/DataStructure.git
 
 ## Open project with IntelliJ IDEA
 
