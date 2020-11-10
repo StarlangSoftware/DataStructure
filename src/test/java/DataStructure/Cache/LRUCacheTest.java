@@ -31,17 +31,12 @@ public class LRUCacheTest {
     @Test
     public void test3() {
         Random random = new Random();
-        LRUCache<Integer, Integer> cache = new LRUCache<>(1000000);
-        for (int i = 0; i < 1000000; i++){
+        LRUCache<Integer, Integer> cache = new LRUCache<>(10000);
+        for (int i = 0; i < 10000; i++){
             cache.add(i, i);
         }
-        for (int j = 0; j < 100; j++) {
-            long time1 = System.currentTimeMillis();
-            for (int i = 0; i < 1000000; i++) {
-                int data = random.nextInt(1000000) + 1000000;
-                cache.add(data, data);
-            }
-            System.out.println(System.currentTimeMillis() - time1);
+        for (int i = 0; i < 1000; i++){
+            assertTrue(cache.contains(random.nextInt(10000)));
         }
     }
 
@@ -60,5 +55,23 @@ public class LRUCacheTest {
         }
         assertEquals(0.632, count / 1000000.0, 0.001);
     }
+
+    @Test
+    public void test5() {
+        Random random = new Random();
+        LRUCache<Integer, Integer> cache = new LRUCache<>(1000000);
+        for (int i = 0; i < 1000000; i++){
+            cache.add(i, i);
+        }
+        for (int j = 0; j < 100; j++) {
+            long time1 = System.currentTimeMillis();
+            for (int i = 0; i < 1000000; i++) {
+                int data = random.nextInt(1000000) + 1000000;
+                cache.add(data, data);
+            }
+            System.out.println(System.currentTimeMillis() - time1);
+        }
+    }
+
 
 }
