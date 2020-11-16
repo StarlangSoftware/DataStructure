@@ -64,7 +64,7 @@ public class LRUCacheTest {
         for (int i = 0; i < size; i++){
             cache.add(i, i);
         }
-        for (int j = 0; j < 1000; j++) {
+        for (int j = 0; j < 100; j++) {
             long time1 = System.currentTimeMillis();
             for (int i = 0; i < size; i++) {
                 int data = random.nextInt(size) + size;
