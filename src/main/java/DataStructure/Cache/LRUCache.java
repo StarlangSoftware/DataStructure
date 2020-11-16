@@ -1,22 +1,21 @@
 package DataStructure.Cache;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 public class LRUCache<K, T> {
     private int cacheSize;
-    private HashMap<K, CacheNode<K, T>> map;
-    private CacheLinkedList<K, T> cache;
+    private LinkedHashMap<K, T> map;
 
     /**
-     * A constructor of {@link LRUCache} class which takes cacheSize as input. It creates new {@link CacheLinkedList} and
+     * A constructor of {@link LRUCache} class which takes cacheSize as input. It creates new {@link LinkedHashMap} and
      * {@link HashMap}.
      *
      * @param cacheSize Integer input defining cache size.
      */
     public LRUCache(int cacheSize) {
         this.cacheSize = cacheSize;
-        cache = new CacheLinkedList<K, T>();
-        map = new HashMap<>();
+        map = new LinkedHashMap<>();
     }
 
     /**
@@ -40,10 +39,10 @@ public class LRUCache<K, T> {
      */
     public T get(K key) {
         if (map.containsKey(key)) {
-            CacheNode<K, T> cacheNode = map.get(key);
-            cache.remove(cacheNode);
-            cache.add(cacheNode);
-            return cacheNode.getData();
+            T value = map.get(key);
+            map.remove(key);
+            map.put(key, value);
+            return value;
         } else {
             return null;
         }
@@ -60,11 +59,9 @@ public class LRUCache<K, T> {
      */
     public void add(K key, T data) {
         if (map.size() == cacheSize) {
-            CacheNode<K, T> removed = cache.remove();
-            map.remove(removed.getKey());
+            K firstKey = (K) map.keySet().stream().findFirst();
+            map.remove(firstKey);
         }
-        CacheNode<K, T> cacheNode = new CacheNode<K, T>(key, data);
-        cache.add(cacheNode);
-        map.put(key, cacheNode);
+        map.put(key, data);
     }
 }

@@ -58,15 +58,16 @@ public class LRUCacheTest {
 
     @Test
     public void test5() {
+        int size = 1000000;
         Random random = new Random();
-        LRUCache<Integer, Integer> cache = new LRUCache<>(1000000);
-        for (int i = 0; i < 1000000; i++){
+        LRUCache<Integer, Integer> cache = new LRUCache<>(size);
+        for (int i = 0; i < size; i++){
             cache.add(i, i);
         }
-        for (int j = 0; j < 100; j++) {
+        for (int j = 0; j < 1000; j++) {
             long time1 = System.currentTimeMillis();
-            for (int i = 0; i < 1000000; i++) {
-                int data = random.nextInt(1000000) + 1000000;
+            for (int i = 0; i < size; i++) {
+                int data = random.nextInt(size) + size;
                 cache.add(data, data);
             }
             System.out.println(System.currentTimeMillis() - time1);
