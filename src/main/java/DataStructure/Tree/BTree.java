@@ -31,15 +31,6 @@ public class BTree<T>{
         return null;
     }
 
-    void modifyRoot(BTreeNode<T> firstChild, BTreeNode<T> secondChild, T newK){
-        root = new BTreeNode<>(d);
-        root.leaf = false;
-        root.m = 1;
-        root.children[0] = firstChild;
-        root.children[1] = secondChild;
-        root.K[0] = newK;
-    }
-
     public void insert(T data){
         BTreeNode<T> s;
         if (root == null){
@@ -49,11 +40,14 @@ public class BTree<T>{
             s = root.insertLeaf(data, comparator);
             if (s != null){
                 BTreeNode<T> tmp = root;
-                modifyRoot(tmp, s, tmp.K[d]);
+                root = new BTreeNode<>(tmp, s, tmp.K[d], d);
                 tmp.K[d] = null;
             }
         } else {
-            s = root.insertNode(this, data, comparator);
+            s = root.insertNode(data, comparator, true);
+            if (s != null){
+                root = s;
+            }
         }
     }
 }

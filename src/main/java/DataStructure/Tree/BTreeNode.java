@@ -17,7 +17,14 @@ public class BTreeNode<T>{
         K = (T[]) new Object[2 * d + 1];
         children = new BTreeNode[2 * d + 1];
     }
-
+    public BTreeNode(BTreeNode<T> firstChild, BTreeNode<T> secondChild, T newK, int d){
+        this(d);
+        leaf = false;
+        m = 1;
+        children[0] = firstChild;
+        children[1] = secondChild;
+        K[0] = newK;
+    }
     int position(T value, Comparator<T> comparator){
         if (m == 0){
             return 0;
@@ -61,12 +68,12 @@ public class BTreeNode<T>{
         moveHalfOfTheChildrenToNewNode(newNode);
     }
 
-    public BTreeNode<T> insertNode(BTree<T> a, T value, Comparator<T> comparator){
+    public BTreeNode<T> insertNode(T value, Comparator<T> comparator, boolean isRoot){
         BTreeNode<T> s, newNode;
         int child;
         child = position(value, comparator);
         if (!children[child].leaf){
-            s = children[child].insertNode(a, value, comparator);
+            s = children[child].insertNode(value, comparator, false);
         } else {
             s = children[child].insertLeaf(value, comparator);
         }
@@ -85,10 +92,10 @@ public class BTreeNode<T>{
             moveHalfOfTheElementsToNewNode(newNode);
             newNode.children[d] = s;
             m = d;
-            if (this == a.root){
-                a.modifyRoot(this, newNode, this.K[d]);
+            if (isRoot){
+                BTreeNode<T> a = new BTreeNode<T>(this, newNode, this.K[d], d);
                 this.K[d] = null;
-                return null;
+                return a;
             } else {
                 return newNode;
             }

@@ -4,8 +4,8 @@ import java.util.Comparator;
 
 public class Tree <T>{
 
-    TreeNode<T> root = null;
-    Comparator<T> comparator;
+    protected TreeNode<T> root = null;
+    protected Comparator<T> comparator;
 
     public Tree(Comparator<T> comparator){
         this.comparator = comparator;
