@@ -17,7 +17,7 @@ public class BTreeNode<T>{
         K = (T[]) new Object[2 * d + 1];
         children = new BTreeNode[2 * d + 1];
     }
-    public BTreeNode(BTreeNode<T> firstChild, BTreeNode<T> secondChild, T newK, int d){
+    public BTreeNode(int d, BTreeNode<T> firstChild, BTreeNode<T> secondChild, T newK){
         this(d);
         leaf = false;
         m = 1;
@@ -93,7 +93,7 @@ public class BTreeNode<T>{
             newNode.children[d] = s;
             m = d;
             if (isRoot){
-                BTreeNode<T> a = new BTreeNode<T>(this, newNode, this.K[d], d);
+                BTreeNode<T> a = new BTreeNode<T>(d, this, newNode, this.K[d]);
                 this.K[d] = null;
                 return a;
             } else {

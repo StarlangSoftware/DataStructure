@@ -40,7 +40,7 @@ public class BTree<T>{
             s = root.insertLeaf(data, comparator);
             if (s != null){
                 BTreeNode<T> tmp = root;
-                root = new BTreeNode<>(tmp, s, tmp.K[d], d);
+                root = new BTreeNode<>(d, tmp, s, tmp.K[d]);
                 tmp.K[d] = null;
             }
         } else {
