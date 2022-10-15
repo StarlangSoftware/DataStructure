@@ -7,10 +7,12 @@ public abstract class Heap<T> {
     private HeapNode<T> array[];
     protected Comparator<T> comparator;
     private int count;
+    private int N;
 
     public Heap(int N, Comparator<T> comparator){
         array = new HeapNode[N];
         count = 0;
+        this.N = N;
         this.comparator = comparator;
     }
 
@@ -62,7 +64,9 @@ public abstract class Heap<T> {
     }
 
     public void insert(T data){
-        count++;
+        if (count < N){
+            count++;
+        }
         array[count - 1] = new HeapNode<>(data);
         percolateUp(count - 1);
     }
