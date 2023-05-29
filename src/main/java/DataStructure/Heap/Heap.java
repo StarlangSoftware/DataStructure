@@ -64,10 +64,12 @@ public abstract class Heap<T> {
     }
 
     public void insert(T data){
-        if (count < N){
-            count++;
-        }
+        count++;
         array[count - 1] = new HeapNode<>(data);
         percolateUp(count - 1);
+    }
+
+    public T peek(){
+        return array[0].getData();
     }
 }
