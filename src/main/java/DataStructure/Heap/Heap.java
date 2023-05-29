@@ -69,7 +69,4 @@ public abstract class Heap<T> {
         percolateUp(count - 1);
     }
 
-    public T peek(){
-        return array[0].getData();
-    }
 }
