@@ -4,10 +4,10 @@ import java.util.Comparator;
 
 public abstract class Heap<T> {
 
-    private HeapNode<T> array[];
+    private final HeapNode<T>[] array;
     protected Comparator<T> comparator;
     private int count;
-    private int N;
+    private final int N;
 
     public Heap(int N, Comparator<T> comparator){
         array = new HeapNode[N];

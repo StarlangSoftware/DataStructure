@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Stack<T>{
 
-    private ArrayList<T> list = new ArrayList<>();
+    private final ArrayList<T> list = new ArrayList<>();
 
     public Stack(){
 
@@ -15,7 +15,7 @@ public class Stack<T>{
     }
 
     public T pop(){
-        if (list.size() > 0){
+        if (!list.isEmpty()){
             return list.remove(list.size() - 1);
         } else {
             return null;

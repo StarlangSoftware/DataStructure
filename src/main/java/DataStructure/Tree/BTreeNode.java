@@ -93,7 +93,7 @@ public class BTreeNode<T>{
             newNode.children[d] = s;
             m = d;
             if (isRoot){
-                BTreeNode<T> a = new BTreeNode<T>(d, this, newNode, this.K[d]);
+                BTreeNode<T> a = new BTreeNode<>(d, this, newNode, this.K[d]);
                 this.K[d] = null;
                 return a;
             } else {

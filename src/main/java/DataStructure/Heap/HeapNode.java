@@ -1,7 +1,7 @@
 package DataStructure.Heap;
 
 public class HeapNode<T>{
-    private T data;
+    private final T data;
 
     public HeapNode(T data){
         this.data = data;

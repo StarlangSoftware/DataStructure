@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class LRUCache<K, T> {
-    private int cacheSize;
-    private LinkedHashMap<K, T> map;
+    private final int cacheSize;
+    private final LinkedHashMap<K, T> map;
 
     /**
      * A constructor of {@link LRUCache} class which takes cacheSize as input. It creates new {@link LinkedHashMap} and

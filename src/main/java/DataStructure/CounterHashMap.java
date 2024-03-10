@@ -138,9 +138,7 @@ public class CounterHashMap<K> extends HashMap<K, Integer> implements Serializab
      */
     public List<Entry<K, Integer>> topN(int N) {
         ArrayList<Entry<K, Integer>> result = new ArrayList<>();
-        for (Map.Entry<K, Integer> entry : entrySet()) {
-            result.add(entry);
-        }
+        result.addAll(entrySet());
         result.sort((o1, o2) -> o2.getValue() - o1.getValue());
         return result.subList(0, N);
     }

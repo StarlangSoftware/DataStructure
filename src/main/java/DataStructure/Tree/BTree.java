@@ -34,7 +34,7 @@ public class BTree<T>{
     public void insert(T data){
         BTreeNode<T> s;
         if (root == null){
-            root = new BTreeNode<T>(d);
+            root = new BTreeNode<>(d);
         }
         if (root.leaf){
             s = root.insertLeaf(data, comparator);
