@@ -3,11 +3,6 @@ For Developers
 
 You can also see [Python](https://github.com/starlangsoftware/DataStructure-Py), [Cython](https://github.com/starlangsoftware/DataStructure-Cy), [C](https://github.com/starlangsoftware/DataStructure-C), [C++](https://github.com/starlangsoftware/DataStructure-CPP), [Swift](https://github.com/starlangsoftware/DataStructure-Swift), [Php](https://github.com/starlangsoftware/DataStructure-Php), [Js](https://github.com/starlangsoftware/DataStructure-Js), or [C#](https://github.com/starlangsoftware/DataStructure-CS) repository.
 
-Class Diagram
-============
-
-<img src="classDiagram.png">
-
 ## Requirements
 
 * [Java Development Kit 8 or higher](#java), Open JDK or Oracle JDK
@@ -170,6 +165,10 @@ kullanılır.
 
 For Contibutors
 ============
+
+### Class Diagram
+
+<img src="classDiagram.png">
 
 ### pom.xml file
 1. Standard setup for packaging is similar to:
